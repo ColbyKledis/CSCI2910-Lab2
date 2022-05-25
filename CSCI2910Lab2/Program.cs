@@ -39,6 +39,7 @@ static void MenuOption(int option)
             MultiTable();
             break;
         case 3:
+            ByteSize();
             break;
         case 4:
             break;
@@ -75,5 +76,22 @@ static void MultiTable()
     for (int i = 0; i < num2; i++)
     {
         Console.WriteLine(num1 + " * " + i + " = " + num1 * i + "\n");
+    }
+}
+
+static void ByteSize()
+{
+    var types = new[] { typeof(sbyte), typeof(byte), typeof(short), typeof(ushort), typeof(int), typeof(uint), typeof(long), typeof(ulong), typeof(float), typeof(double), typeof(decimal) };
+    Console.WriteLine("| {0, -10} | {1, 7} | {2, 30} | {3, 30} |", "Type", "Byte(s)", "Min", "Max");
+    Console.WriteLine("|------------|---------|--------------------------------|--------------------------------|");
+
+    foreach (var type in types)
+    {
+        Console.WriteLine(
+            "| {0, -10} | {1, 7} | {2, 30} | {3, 30} |",
+            type.Name,
+            System.Runtime.InteropServices.Marshal.SizeOf(Activator.CreateInstance(type)),
+            type.GetField("MinValue").GetValue(null),
+            type.GetField("MaxValue").GetValue(null));
     }
 }
