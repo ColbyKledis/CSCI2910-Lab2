@@ -42,6 +42,7 @@ static void MenuOption(int option)
             ByteSize();
             break;
         case 4:
+            Calc();
             break;
         case 0:
             break;
@@ -94,4 +95,54 @@ static void ByteSize()
             type.GetField("MinValue").GetValue(null),
             type.GetField("MaxValue").GetValue(null));
     }
+}
+
+
+// Calculator Method for Question 4
+
+static void Calc()
+{
+    char op;
+    double num1, num2;
+
+    while (true)
+    {
+        Console.WriteLine("Calculator: Press ESC to leave");
+        Console.WriteLine("Enter a Number");
+        num1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter a Function (+, -, *, /, %");
+        op = Console.ReadLine()[0];
+        Console.WriteLine("Enter Second Number");
+        num2 = Convert.ToInt32(Console.ReadLine());
+        
+
+        switch (op)
+        {
+            case '+':
+                Console.WriteLine($"{num1} + {num2} = {num1 + num2}");
+                break;
+            case '-':
+                Console.WriteLine($"{num1} - {num2} = {num1 - num2}");
+                break;
+            case '*':
+                Console.WriteLine($"{num1} * {num2} = {num1 * num2}");
+                break;
+            case '/':
+                Console.WriteLine($"{num1} / {num2} = {num1 / num2}");
+                break;
+            case '%':
+                Console.WriteLine($"{num1} % {num2} = {num1 % num2}");
+                break;
+            default:
+                Console.WriteLine("Invalid Operation choice. Try Again");
+                break;
+        }
+        ConsoleKeyInfo ch;
+        ch = Console.ReadKey();
+        if (ch.Key == ConsoleKey.Escape)
+        {
+            Environment.Exit(0);
+        }
+    }
+
 }
