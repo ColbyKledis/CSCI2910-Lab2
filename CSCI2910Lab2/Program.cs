@@ -8,6 +8,7 @@ do
     DisplayMenu();
     Console.WriteLine("Enter choice: ");
     choice = Convert.ToInt32(Console.ReadLine());
+    Console.Clear();
     MenuOption(choice);
 } while (choice != 0);
 
@@ -32,6 +33,7 @@ static void MenuOption(int option)
     switch (option)
     {
         case 1:
+            AddNumbers();
             break;
         case 2:
             break;
@@ -46,3 +48,15 @@ static void MenuOption(int option)
             break;
     }
 }
+
+// Sum method for Question 1
+static void AddNumbers()
+{
+    Console.WriteLine("Add Numbers:");
+    Console.WriteLine("Enter First Number");
+    int num1 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Enter Second Number");
+    int num2 = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine($"{num1} + {num2} = {num1 + num2}");
+} 
