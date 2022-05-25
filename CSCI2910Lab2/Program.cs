@@ -36,6 +36,7 @@ static void MenuOption(int option)
             AddNumbers();
             break;
         case 2:
+            MultiTable();
             break;
         case 3:
             break;
@@ -60,3 +61,19 @@ static void AddNumbers()
 
     Console.WriteLine($"{num1} + {num2} = {num1 + num2}");
 } 
+
+// Multiplication table method for Question 2
+
+static void MultiTable()
+{
+    Console.WriteLine("Multiplication Table:");
+    Console.WriteLine("Enter a number to multiply:");
+    int num1 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Enter the size of the muliplication table:");
+    int num2 = Convert.ToInt32(Console.ReadLine());
+
+    for (int i = 0; i < num2; i++)
+    {
+        Console.WriteLine(num1 + " * " + i + " = " + num1 * i + "\n");
+    }
+}
